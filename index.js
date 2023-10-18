@@ -6,7 +6,7 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  return Object.values(object).reduce((acc,element) => acc + element, 0)
 }
 
 // =============================================================================
@@ -16,7 +16,8 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const sumAges = Object.values(object).reduce((acc,element) => acc + element, 0);
+  return sumAges / Object.values(object).length;
 }
 
 // =============================================================================
@@ -27,7 +28,18 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  const arrayNames = Object.keys(object);
+  const arrayAges =  Object.values(object);
+  
+  const result = [];
+
+  for ( i=0 ; i < arrayNames.length ; i++ ){
+    result[i] = {
+      name: arrayNames[i],
+      age: arrayAges [i]
+    }
+  }
+  return result;
 }
 
 // =============================================================================
@@ -38,8 +50,23 @@ function getPeopleArray(object) {
 // Ej resultado: [ { fruit: 'Banana', quantity: 15 }, { fruit: 'Grape', quantity: 12 }]
 // =============================================================================
 
+
+
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const arrays = Object.entries(object); // arrays = [ [apple,5] , [banana,15] , [orange,8] ]
+  const result = [];
+  let aux  = 0;
+
+  for (i=0 ; i < arrays.length ; i++ ){
+    if ( arrays[i][1] > 10){
+      result[aux] = {
+        fruit: arrays[i][0],
+        quantity: arrays[i][1]
+      }
+      aux++;
+    }
+  }
+  return result;
 }
 
 // =============================================================================
