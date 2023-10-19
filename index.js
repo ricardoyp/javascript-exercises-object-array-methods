@@ -28,7 +28,7 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  const arrayNames = Object.keys(object);
+  const arrayNames = Object.keys(object); 
   const arrayAges =  Object.values(object);
   
   const result = [];
@@ -75,7 +75,16 @@ function getAbundantFruits(object) {
 // El resultado debe ser un único numero.
 // book: { titulo: 'El señor de los anillos', autor: 'J.R.R. Tolkien', genero: 'Fantasía' }
 // =============================================================================
+//    object = {
+//      titulo: 'El señor de los anillos',
+//      autor: 'J.R.R. Tolkien', 
+//      genero: 'Fantasia'
+//    } 
 
 function getCharacterCount(object) {
-  // Aquí tu código
+
+  const sumProperties = Object.keys(object).reduce((acc,element) => acc + element, '').length;
+  const sumValues = Object.values(object).reduce((acc,element) => acc + element, '').length;
+
+  return sumProperties + sumValues;
 }
